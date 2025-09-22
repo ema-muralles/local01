@@ -1,0 +1,59 @@
+/* Estilos para el contenedor principal <header> */
+.header {
+  position: relative;
+  z-index: 20;
+  /* Puedes agregar aquí el fondo y otros estilos que quieras para toda la barra */
+  background-color: #000000af; /* Ejemplo: Fondo negro para que el logo se vea blanco */
+}
+
+/* Estilos para el contenedor interno (el div que envuelve el logo y la navegación) */
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; /* Puedes ajustar el padding según necesites */
+}
+
+/* Estilos para el contenedor de navegación (el <nav> dentro de HeaderNav) */
+/* Estilos para el contenedor de navegación (el <nav> dentro de HeaderNav) */
+.navContainer {
+  display: flex; /* Ensures that the items are in a row */
+  gap: 1rem; /* Creates space between the links */
+  align-items: center; /* Aligns items vertically */
+}
+
+/* Make sure these classes are also correctly applied */
+.navLink {
+  color: #fff;
+}
+.navLink:hover {
+  color: #ff8c00; /* Ejemplo: Naranja al pasar el ratón */
+}
+
+/* Estilos para el botón de "Probar productos AI" */
+.ctaButton {
+  background-color: #ff8c00; /* Naranja */
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Forma de pastilla */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #ffffff; /* Naranja más oscuro al pasar el ratón */
+  color: black;
+}
+
+/* Estilos para el icono de búsqueda */
+.searchIcon {
+  color: #fff; /* Blanco */
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.searchIcon:hover {
+  color: #ff8c00; /* Naranja al pasar el ratón */
+}
