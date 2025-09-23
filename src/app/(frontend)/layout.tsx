@@ -26,7 +26,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <Providers>
           <AdminBar
             adminBarProps={{
@@ -35,7 +35,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           />
 
           <Header />
-          {children}
+
+          {/* Contenido principal que ocupa todo el espacio disponible */}
+          <main className="flex-grow">{children}</main>
+
           <Footer />
         </Providers>
       </body>

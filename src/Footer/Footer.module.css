@@ -1,0 +1,70 @@
+/* Estilos globales */
+.footer {
+  background-color: #111;
+  color: #f8f8f8;
+}
+
+/* Nav links */
+.navLink {
+  color: #f8f8f8;
+}
+
+.navLink:hover {
+  color: #ff9800;
+}
+
+/* Prompt section */
+.promptText {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.promptButton {
+  border-color: #ff9800;
+  color: #ff9800;
+}
+
+.promptButton:hover {
+  background: #ff9800;
+  color: black;
+}
+
+/* Contact links */
+.contactLink {
+  color: #f8f8f8;
+}
+
+.contactLink:hover {
+  color: #ff9800;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .promptText {
+    font-size: 1rem;
+  }
+
+  .contactLink {
+    justify-content: center;
+  }
+}
+.promptButton {
+  display: inline-block;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px; /* estilo tipo pill */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.promptButton:hover {
+  background-color: #fff;
+  color: #000;
+}

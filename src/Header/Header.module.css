@@ -1,59 +1,209 @@
-/* Estilos para el contenedor principal <header> */
+/* ===== Estilos generales del Header ===== */
+
 .header {
   position: relative;
   z-index: 20;
-  /* Puedes agregar aquí el fondo y otros estilos que quieras para toda la barra */
-  background-color: #000000af; /* Ejemplo: Fondo negro para que el logo se vea blanco */
+  background-color: #000000af; /* Fondo negro semi-transparente */
 }
 
-/* Estilos para el contenedor interno (el div que envuelve el logo y la navegación) */
 .innerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem; /* Puedes ajustar el padding según necesites */
+  padding: 1rem 2rem;
 }
 
-/* Estilos para el contenedor de navegación (el <nav> dentro de HeaderNav) */
-/* Estilos para el contenedor de navegación (el <nav> dentro de HeaderNav) */
+/* ===== Menú de Navegación (Desktop) ===== */
+
 .navContainer {
-  display: flex; /* Ensures that the items are in a row */
-  gap: 1rem; /* Creates space between the links */
-  align-items: center; /* Aligns items vertically */
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-/* Make sure these classes are also correctly applied */
 .navLink {
   color: #fff;
-}
-.navLink:hover {
-  color: #ff8c00; /* Ejemplo: Naranja al pasar el ratón */
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Estilos para el botón de "Probar productos AI" */
+.navLink:hover {
+  color: #ff8c00;
+}
+
 .ctaButton {
-  background-color: #ff8c00; /* Naranja */
-  color: #fff;
+  background-color: #ff8c00 !important;
+  color: #fff !important;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border-radius: 9999px; /* Forma de pastilla */
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  border-radius: 45px !important;
+  text-decoration: none !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
 }
 
 .ctaButton:hover {
-  background-color: #ffffff; /* Naranja más oscuro al pasar el ratón */
+  background-color: #ffffff;
   color: black;
 }
 
-/* Estilos para el icono de búsqueda */
 .searchIcon {
-  color: #fff; /* Blanco */
+  color: #fff;
   width: 1.5rem;
   height: 1.5rem;
   transition: color 0.3s ease;
 }
 
 .searchIcon:hover {
-  color: #ff8c00; /* Naranja al pasar el ratón */
+  color: #ff8c00;
+}
+
+/* ===== Dropdown para Desktop ===== */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: max-content; /* Asegura que el área del dropdown tenga un tamaño adecuado */
+}
+
+/* Trigger del dropdown */
+.dropdownTrigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font: inherit;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover del trigger */
+.dropdownTrigger:hover {
+  color: #ff8c00;
+}
+
+/* Menú del dropdown */
+.dropdownMenu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #2e2a2a;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  z-index: 100;
+  transition: opacity 0.3s ease-in-out; /* Para un despliegue suave */
+}
+
+/* Mostrar el dropdown cuando se hace hover en el contenedor .dropdown */
+.dropdown:hover .dropdownMenu {
+  display: block; /* Se muestra al hacer hover */
+}
+
+/* Items del dropdown */
+.dropdownItem {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover de los items del dropdown */
+.dropdownItem:hover {
+  background: #ff8c00;
+  color: #000;
+}
+
+/* --- Media Query para el Menú Móvil (Hamburguesa) --- */
+
+/* Oculta los elementos de escritorio en pantallas pequeñas */
+@media (max-width: 1006px) {
+  .navContainer {
+    display: none; /* Oculta el menú de navegación completo */
+  }
+
+  .ctaButton {
+    display: none !important; /* Oculta el botón CTA */
+  }
+
+  /* Muestra el botón de hamburguesa */
+  .menuToggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0;
+  }
+  
+  /* Estilos específicos para el menú móvil */
+  .mobileMenu .dropdownMenu {
+    display: flex; /* Muestra los sub-items verticalmente */
+    flex-direction: column;
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .mobileMenu .dropdown,
+  .mobileMenu .dropdownTrigger,
+  .mobileMenu .dropdownItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Estilos para el menú desplegable móvil */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%); /* Oculta el menú por encima de la pantalla */
+  pointer-events: none; /* Deshabilita los clics cuando está oculto */
+}
+
+/* Estado para mostrar el menú móvil */
+.mobileMenu.visible {
+  transform: translateY(0); /* Mueve el menú a su posición visible */
+  pointer-events: auto; /* Habilita los clics */
+}
+
+/* Estilos de los elementos del menú móvil */
+.mobileMenu .dropdownTrigger,
+.mobileMenu .navLink,
+.mobileMenu .dropdownItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilos para el submenú del móvil */
+.mobileMenu .dropdownItem {
+  padding-left: 2rem; /* Indentación para los sub-items */
+}
+
+.mobileMenu .dropdownTrigger:hover,
+.mobileMenu .navLink:hover {
+  background-color: #ff8c00;
+  color: #000;
 }
